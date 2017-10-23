@@ -4,7 +4,11 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var app = express();
 
-app.use(session({secret: 'Shhh...'}));
+app.use(session({
+    secret: 'Shhh...',
+    saveUninitialized: true,
+    resave: true,
+}));
 
 // Body Parser uses json now
 // app.use(bodyParser.urlencoded({ extended: true }));
