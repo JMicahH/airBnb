@@ -1,0 +1,9 @@
+<div class="container p-3">
+    <h1>Bike Marketplace</h1>
+    <div>
+        <a [routerLink]="['browse']">Browse</a>&nbsp;|&nbsp;
+        <a [routerLink]="['listing']">My Listings</a>&nbsp;|&nbsp;
+        <a [routerLink]="['']" (click)='logout()'>Logout</a>
+    </div>
+    <router-outlet></router-outlet>
+</div>

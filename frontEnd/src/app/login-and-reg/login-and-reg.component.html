@@ -1,0 +1,96 @@
+<div class="container">
+
+  <!-- Bike of the day here -->
+
+  <div class="row justify-content-between p-3">
+    <div class="col-5">
+      <h2>Login</h2>
+      <form (submit)='login()'>
+        <label>Email*</label>
+        <input class="form-control" type="text" name='email' placeholder="Email">
+        <label class="mt-2">Password*</label>
+        <input class="form-control" type="text" name='password' placeholder="Password">
+        <button class="btn btn-outline-success mt-3">Login</button>
+      </form>
+    </div>
+    <div class="col-5">
+      <h2>Register</h2>
+      <form #reg='ngForm' (submit)='register()'>
+          <label class="mt-2">First Name*</label>
+          <input
+          class="form-control"
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          required
+          minlength="2"
+          [(ngModel)]='user.firstName'
+          #firstName='ngModel'>
+          <div *ngIf='firstName.errors'>
+            <p class="text-danger" *ngIf='firstName.errors.required && firstName.touched'>First name is required</p>
+            <p class="text-danger" *ngIf='firstName.errors.minlength'>First name must be at least 2 characters</p>
+          </div>
+          
+          <label class="mt-2">Last Name*</label>
+          <input
+          class="form-control"
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          required
+          minlength="2"
+          [(ngModel)]='user.lastName'
+          #lastName='ngModel'>
+          <div *ngIf='lastName.errors'>
+            <p class="text-danger" *ngIf='lastName.errors.required && lastName.touched'>Last name is required</p>
+            <p class="text-danger" *ngIf='lastName.errors.minlength'>Last name must be longer than 2 characters</p>
+          </div>
+          
+          <label class="mt-2">Email*</label>
+          <input
+          class="form-control"
+          type="text"
+          name="email"
+          placeholder="Email"
+          required
+          [(ngModel)]='user.email'
+          #email='ngModel'>
+          <div *ngIf='email.errors'>
+            <p class="text-danger" *ngIf='email.errors.required && email.touched'>Email is required</p>
+          </div>
+          
+          <label class="mt-2">Password*</label>
+          <input
+          class="form-control"
+          type="text"
+          name="password"
+          placeholder="Password"
+          required
+          minlength="8"
+          [(ngModel)]='user.password'
+          #password='ngModel'>
+          <div *ngIf='password.errors'>
+            <p class="text-danger" *ngIf='password.errors.required && password.touched'>Password is required</p>
+            <p class="text-danger" *ngIf='password.errors.minlength'>Password must be at least 8 charcters</p>
+          </div>
+          
+          <label class="mt-2">Confirm Password*</label>
+          <input
+          class="form-control"
+          type="text"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          required
+          [(ngModel)]='user.confirmPassword'
+          #confirmPassword='ngModel'>
+          <div *ngIf='user.confirmPassword !== user.password'>
+            <p class="text-danger" *ngIf='confirmPassword.touched'>Passwords must match!</p>
+          </div>
+
+        <button [disabled]='!reg.valid' class="btn btn-outline-success mt-3">Register</button>
+
+        <p *ngIf='errors' class="text-danger mt-3">Invaild Account Info</p>
+      </form>
+    </div>
+  </div>
+</div>
