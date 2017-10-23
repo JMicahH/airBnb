@@ -10,7 +10,7 @@ var userSchema = new mongoose.Schema({
     password: {type: String, required: true, minlength: 8},
     host: {type: Boolean, required: true, default: false},
     phone: {type: String, required: true},
-    
+    image: {type: String},
 
     // One to Many
     listings: [{type: Schema.Types.ObjectId, ref: 'Listing'}],
