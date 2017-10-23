@@ -59,6 +59,20 @@
             <p class="text-danger" *ngIf='email.errors.required && email.touched'>Email is required</p>
           </div>
           
+          <label class="mt-2">Phone Number*</label>
+          <input
+          class="form-control"
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          required
+          [(ngModel)]='user.phone'
+          #email='ngModel'>
+          <div *ngIf='phone.errors'>
+            <p class="text-danger" *ngIf='phone.errors.required && phone.touched'>Phone Number is required</p>
+          </div>
+
+        
           <label class="mt-2">Password*</label>
           <input
           class="form-control"
