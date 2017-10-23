@@ -1,6 +1,6 @@
 <div class="container">
 
-  <!-- Bike of the day here -->
+  <!-- LOG IN -->
 
   <div class="row justify-content-between p-3">
     <div class="col-5">
@@ -14,6 +14,10 @@
       </form>
     </div>
     <div class="col-5">
+
+
+      <!-- REGISTER USER -->
+
       <h2>Register</h2>
       <form #reg='ngForm' (submit)='register()'>
           <label class="mt-2">First Name*</label>
@@ -67,7 +71,7 @@
           placeholder="Phone Number"
           required
           [(ngModel)]='user.phone'
-          #email='ngModel'>
+          #phone='ngModel'>
           <div *ngIf='phone.errors'>
             <p class="text-danger" *ngIf='phone.errors.required && phone.touched'>Phone Number is required</p>
           </div>

@@ -13,6 +13,7 @@ module.exports = {
         newUser.firstName = req.body.firstName;
         newUser.lastName = req.body.lastName;
         newUser.email = req.body.email;
+        newUser.phone = req.body.phone;
         if (req.body.password === req.body.confirmPassword){
             newUser.password = req.body.password;
         }

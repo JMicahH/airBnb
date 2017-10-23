@@ -20,7 +20,7 @@ export class ApiService {
     .toPromise();
   }
 
-  register(user){
+  register(user){ 
     return this._http.post('/api/user/create', user)
     .map(data => data.json())
     .toPromise()

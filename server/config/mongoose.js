@@ -8,7 +8,7 @@ var path = require('path');
 // 
 // 
 // Connect to DB and change DB name!!
-mongoose.connect('mongodb://localhost/bike_marketplace');
+mongoose.connect('mongodb://localhost/airbnb');
 // 
 // 
 

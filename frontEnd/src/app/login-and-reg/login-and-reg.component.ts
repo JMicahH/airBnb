@@ -20,7 +20,7 @@ export class LoginAndRegComponent implements OnInit {
   constructor(
     private _apiService: ApiService,
     private _route: Router,
-  ) { }
+  ) { } 
 
   ngOnInit() {
   }
@@ -28,9 +28,12 @@ export class LoginAndRegComponent implements OnInit {
   register(){
     this._apiService.register(this.user)
     .then(data => {
-      this.errors = data;
-      if (this.errors.good){
+      if (data.good){
         this._route.navigateByUrl('browse');
+      }
+      else{
+        console.log("<>Errors")
+        this.errors = data.errors
       }
     })
   }
