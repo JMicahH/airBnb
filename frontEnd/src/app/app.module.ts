@@ -15,12 +15,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginAndRegComponent } from './login-and-reg/login-and-reg.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginAndRegComponent,
-    
   ],
   imports: [
     BrowserModule,
