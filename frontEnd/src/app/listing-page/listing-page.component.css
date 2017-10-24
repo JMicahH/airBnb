@@ -33,8 +33,14 @@
     width: 100%;
     border: 1px solid #999;
     height: 355px;
-    padding: 10px;
-    background-color: rgb(238, 238, 238);
     position: relative;
     top: -50px;
+}
+
+#bookingTop {
+    background-color: rgba(44, 44, 44, 0.7);
+    width: 100%;
+    padding: 10px;
+    height: 49px;  
+    color: rgb(255, 196, 0);  
 }
