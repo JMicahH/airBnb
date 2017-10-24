@@ -15,12 +15,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginAndRegComponent } from './login-and-reg/login-and-reg.component';
 import { ListingPageComponent } from './listing-page/listing-page.component';
+import { AddListingComponent } from './add-listing/add-listing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginAndRegComponent,
     ListingPageComponent,
+    AddListingComponent,
   ],
   imports: [
     BrowserModule,
