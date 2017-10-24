@@ -29,10 +29,26 @@ export class LoginAndRegComponent implements OnInit {
     this._apiService.register(this.user)
     .then(data => {
       if (data.good){
-        this._route.navigateByUrl('browse');
+        this._route.navigateByUrl('');
       }
       else{
         console.log("<>Errors")
+        this.errors = data.errors
+      }
+    })
+  }
+
+
+  login(){
+    console.log("<>LoginReg Comp / Login")
+    this._apiService.login(this.loginTest)
+    .then(data => {
+      if (data.good){
+        console.log("<>No Errors: Login", data)        
+        this._route.navigateByUrl('');
+      }
+      else{
+        console.log("<>Errors: Login", data)
         this.errors = data.errors
       }
     })

@@ -4,26 +4,53 @@ var User = mongoose.model('User');
 
 module.exports = {
 
-    index: function(req,res){
+    index: function (req, res) {
         // Function does stuff here!
     },
 
-    create: function(req,res){
+    create: function (req, res) {
         var newUser = new User();
         newUser.firstName = req.body.firstName;
         newUser.lastName = req.body.lastName;
         newUser.email = req.body.email;
         newUser.phone = req.body.phone;
-        if (req.body.password === req.body.confirmPassword){
+        if (req.body.password === req.body.confirmPassword) {
             newUser.password = req.body.password;
         }
-        newUser.save(function(err){
-            if (err){
+        newUser.save(function (err) {
+            if (err) {
                 res.json(err)
             } else {
-                res.json({'good':'good'})
+                res.json({
+                    'good': 'good'
+                })
             }
         })
     },
+
+
+    login: function (req, res) {
+        console.log("<>Users Controller / Login", req.body)            
+        User.findOne({email: req.body.email}, function(err, user){
+            if (!user) {
+                console.log("No User Match Found")
+                console.log(err)
+                res.json({
+                    'error': 'No User Match Found'
+                })            
+            } else {
+                console.log("User Match Found")                
+                if(user.password === req.body.password){
+                    console.log("Password Match Found")                                    
+                    res.json({
+                        'good': 'good'
+                    })
+                } else {
+                    console.log("No Password Match Found")                                                  
+                    res.json({'password': 'password not correct'})
+                }   
+                }
+            })
+    }
 
 };
