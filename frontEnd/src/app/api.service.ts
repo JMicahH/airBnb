@@ -26,6 +26,12 @@ export class ApiService {
     .toPromise()
   }
 
+  getListing(listingId){
+    return this._http.get('/api/listing/getListing', listingId)
+    .map(data => data.json())
+    .toPromise()
+  }
+
   login(loginTest){ 
     console.log("<>API Service / Login", loginTest)    
     return this._http.post('/api/user/login', loginTest)
