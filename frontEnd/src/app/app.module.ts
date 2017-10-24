@@ -14,11 +14,13 @@ import { AppRoutingModule } from './app-routing.module';
 // All Components you can paste in routing
 import { AppComponent } from './app.component';
 import { LoginAndRegComponent } from './login-and-reg/login-and-reg.component';
+import { ListingPageComponent } from './listing-page/listing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginAndRegComponent,
+    ListingPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,4 +25,10 @@ export class ApiService {
     .map(data => data.json())
     .toPromise()
   }
+
+  getListing(listingId){
+    return this._http.get('/api/listing/getListing', listingId)
+    .map(data => data.json())
+    .toPromise()
+  }
 }
