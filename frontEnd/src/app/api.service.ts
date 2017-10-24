@@ -20,6 +20,12 @@ export class ApiService {
     .toPromise();
   }
 
+  addListing(listing){ 
+    return this._http.post('/api/listing/create', listing)
+    .map(data => data.json())
+    .toPromise()
+  }
+
   register(user){ 
     return this._http.post('/api/user/create', user)
     .map(data => data.json())

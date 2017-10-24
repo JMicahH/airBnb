@@ -9,6 +9,10 @@ module.exports = function(app){
     //     users.index(req,res);
     // });
 
+    app.post('/api/listing/create', function(req,res){
+        listing.create(req,res);
+    });
+
     app.post('/api/user/create', function(req,res){
         users.create(req,res);
     });
