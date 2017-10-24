@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var session = require('express-session');
+
 // Change example to your model from your models folder
 var User = mongoose.model('User');
 
@@ -17,6 +19,8 @@ module.exports = {
         if (req.body.password === req.body.confirmPassword) {
             newUser.password = req.body.password;
         }
+        req.session.currentUser = newUser._id
+        console.log("<>Users.js / create / Added to Session", req.session.currentUser)
         newUser.save(function (err) {
             if (err) {
                 res.json(err)
@@ -41,7 +45,9 @@ module.exports = {
             } else {
                 console.log("User Match Found")                
                 if(user.password === req.body.password){
-                    console.log("Password Match Found")                                    
+                    console.log("Password Match Found")  
+                    req.session.currentUser = user._id                    
+                    console.log("<>Users.js / create / Added to Session", req.session.currentUser)          
                     res.json({
                         'good': 'good'
                     })
