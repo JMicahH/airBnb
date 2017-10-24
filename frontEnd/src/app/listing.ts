@@ -13,5 +13,20 @@ export class Listing {
     type: string;
     beds: number;
     baths: number;
-    amenities: string[];
+    amenities = {
+        wifi: false,
+        kitchen: false,
+        tv: false,
+        ac: false,
+        heat: false,
+        pets: false,
+        pool: false,
+        hotTub: false,
+        wheelchair: false,
+        kidFriendly: false,
+        washerDryer: false,
+        parking: false,
+        smoking: false,
+        fireplace : false,
+    };
 }
