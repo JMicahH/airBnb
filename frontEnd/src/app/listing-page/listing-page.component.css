@@ -1,0 +1,46 @@
+#heroImage {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    height: 700px !important;
+    background-image: url("http://cdn.home-designing.com/wp-content/uploads/2015/03/ocean-view-apartment.jpg");
+    width: 100%;
+}
+
+.listingAvatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#listingLinks {
+    padding: 17px 0px 0px 0px;
+
+
+}
+
+.smallBullet{
+    font-size: 9px;
+    position: relative;
+    top: -2px;
+}
+
+
+
+
+#bookingBox{
+    width: 100%;
+    border: 1px solid #999;
+    height: 355px;
+    position: relative;
+    top: -50px;
+}
+
+#bookingTop {
+    background-color: rgba(44, 44, 44, 0.7);
+    width: 100%;
+    padding: 10px;
+    height: 49px;  
+    color: rgb(255, 196, 0);  
+}
