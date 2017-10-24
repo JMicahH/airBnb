@@ -12,7 +12,12 @@ module.exports = function(app){
         users.create(req,res);
     });
 
+    app.post('/api/user/login', function(req,res){
+        console.log("<>Routes.js / Login", req.body)            
+        users.login(req,res);
+    });
 
+    
     app.all("*", (req,res,next) => {
         // Change name of angular file, in this case frontEnd
         res.sendFile(path.resolve("./frontEnd/dist/index.html"))
