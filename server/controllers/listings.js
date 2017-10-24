@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var Listing = mongoose.model('Listing');
+var User = mongoose.model('User');
 
 module.exports = {
 
@@ -21,7 +22,7 @@ module.exports = {
     create: function(req,res){
         var newListing = new Listing();
         newListing.title = req.body.title;
-        newListing.decs = req.body.decs;
+        newListing.desc = req.body.desc;
         newListing.address = req.body.address;
         if(req.body.apartmentNumber){
             newListing.address = req.body.address;
@@ -44,11 +45,24 @@ module.exports = {
 
         newListing.save(function(err){
             if (err){
-                res.json({error:'Listing save error'})
+                res.json({error:'Listing save error'});
             } else {
-                res.json({good: 'All good'})
+                User.findOne({_id: req.session.currentUser}, function(err,user){
+                    if (err){
+                        res.json({error:'Finding user error'});
+                    } else {
+                        user.host = true;
+                        user.save(function(err){
+                            if (err){
+                                res.json({error: 'New host save error'});
+                            } else {
+                                res.json({good: 'All good'});
+                            }
+                        });
+                    }
+                });
             }
-        })
+        });
     },
 
 };

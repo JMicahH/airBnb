@@ -15,8 +15,6 @@ export class LoginAndRegComponent implements OnInit {
 
   loginTest = new LoginTest()
 
-  errors: any;
-
   constructor(
     private _apiService: ApiService,
     private _route: Router,
@@ -32,24 +30,20 @@ export class LoginAndRegComponent implements OnInit {
         this._route.navigateByUrl('');
       }
       else{
-        console.log("<>Errors")
-        this.errors = data.errors
+        console.log("Error in regester");
       }
     })
   }
 
 
   login(){
-    console.log("<>LoginReg Comp / Login")
     this._apiService.login(this.loginTest)
     .then(data => {
-      if (data.good){
-        console.log("<>No Errors: Login", data)        
-        this._route.navigateByUrl('');
+      if (data.good){     
+        this._route.navigateByUrl('listing');
       }
       else{
-        console.log("<>Errors: Login", data)
-        this.errors = data.errors
+        console.log("Error in login");
       }
     })
   }
