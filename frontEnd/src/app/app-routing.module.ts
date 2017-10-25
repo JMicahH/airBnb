@@ -8,8 +8,11 @@ import { AddListingComponent } from './add-listing/add-listing.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: LoginAndRegComponent },
-  {path: 'listing', pathMatch: 'full', component: AddListingComponent },
+  {path: 'addListing', pathMatch: 'full', component: AddListingComponent },
+  {path: 'listingPage', pathMatch: 'full', component: ListingPageComponent },
+  {path: 'logout', pathMatch: 'full', component: LoginAndRegComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
