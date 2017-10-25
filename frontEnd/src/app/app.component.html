@@ -1,5 +1,9 @@
 <div class="container p-3">
-    <h1>Air BnB</h1>
-
+    <div class="row">
+        <h1>Air BnB</h1>
+        <form (submit)='search()'>
+            <input id='searchTextField' type="text" name='search' placeholder="Enter City">
+        </form>
+    </div>
     <router-outlet></router-outlet>
 </div>
