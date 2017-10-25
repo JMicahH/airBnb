@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ListingPageComponent implements OnInit {
   listingId: any;
   listing: any;
+  dateString: any;
 
   constructor(
     private _apiService: ApiService,
@@ -41,8 +42,24 @@ export class ListingPageComponent implements OnInit {
     });
   }
 
-  // bookListing(){
-  //   this._apiService.bookListing(this.listingId)
-  // }
+reservationSubmit(){
+  var startEnd = this.dateString.split("-")
+  var start = startEnd[0]
+  var end = startEnd[1]
+  var startDate = makeDate(start)
+  var endDate = makeDate(end)
+
+  function makeDate(date){
+    let arr = date.split('/')
+    let day = parseInt(arr[0]) + 1
+    console.log("DAY", day)
+    let month = arr[1]
+    let year = arr[2]
+    let datestring = year + "-" + month + "-" + day
+    return new Date(datestring)
+  }
+  console.log(startDate, endDate)
+}
+
 
 }
