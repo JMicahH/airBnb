@@ -41,4 +41,8 @@ export class ListingPageComponent implements OnInit {
     });
   }
 
+  // bookListing(){
+  //   this._apiService.bookListing(this.listingId)
+  // }
+
 }

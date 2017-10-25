@@ -40,7 +40,7 @@ export class LoginAndRegComponent implements OnInit {
     this._apiService.login(this.loginTest)
     .then(data => {
       if (data.good){     
-        this._route.navigateByUrl('listing');
+        this._route.navigateByUrl('addListing');
       }
       else{
         console.log("Error in login");
