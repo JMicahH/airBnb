@@ -5,12 +5,22 @@ var User = mongoose.model('User');
 
 module.exports = {
 
-    index: function(req,res){
-        // Function does stuff here!
+    // Requires listingId
+    deleteListing: function(req,res){
+        Listing.remove({_id: req.body.listingId}, function(err){
+            if (err){
+                res.json({'error':'Error deleting listing'});
+            } else {
+                res.json({'good':'All good'});
+            }
+        });
     },
 
+    // Added populating reviews, it is untested so be careful
     getListing: function(req,res){
-        Listing.findOne({_id: req.params.listingId}, function(err, listing){
+        Listing.findOne({_id: req.params.listingId})
+        .populate('reviews')
+        .exec(function(err, listing){
             if (err){
                 res.json({'error': err});
             } else {

@@ -1,9 +1,22 @@
-<div class="container p-3">
-    <div class="row">
-        <h1>Air BnB</h1>
-        <form (submit)='search()'>
-            <input id='searchTextField' type="text" name='search' placeholder="Enter City">
-        </form>
-    </div>
-    <router-outlet></router-outlet>
+<!-- <head>
+    <script type="text/javascript">
+    function initialize() {
+        var input = document.getElementById('searchTextField');
+        var options = {
+          types: ['(cities)'],
+          componentRestrictions: {country: 'us'}
+        };
+        
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head> -->
+
+<div class="row">
+    <h1>Air BnB</h1>
+    <form (submit)='search()'>
+        <input id='searchTextField' type="text" name='search' placeholder="Enter City">
+    </form>
 </div>
+<router-outlet></router-outlet>
