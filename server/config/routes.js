@@ -9,6 +9,10 @@ module.exports = function(app){
     //     users.index(req,res);
     // });
 
+    app.get('/api/listing/getYourListings', function(req,res){
+        listings.getYourListings(req,res);
+    });
+
     app.post('/api/listing/create', function(req,res){
         listings.create(req,res);
     });
@@ -17,7 +21,7 @@ module.exports = function(app){
         users.create(req,res);
     });
 
-    app.get('/api/listing/getListing', function(req,res){
+    app.post('/api/listing/getListing', function(req,res){
         listings.getOne(req,res);
     });
 

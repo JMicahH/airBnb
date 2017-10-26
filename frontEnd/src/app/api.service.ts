@@ -20,6 +20,12 @@ export class ApiService {
     .toPromise();
   }
 
+  getYourListings(){ 
+    return this._http.get('/api/listing/getYourListings')
+    .map(data => data.json())
+    .toPromise()
+  }
+
   addListing(listing){ 
     return this._http.post('/api/listing/create', listing)
     .map(data => data.json())
@@ -33,13 +39,13 @@ export class ApiService {
   }
 
   getListing(listingId){
-    return this._http.get('/api/listing/getListing', listingId)
+    var object = {id: listingId};
+    return this._http.post('/api/listing/getListing', object)
     .map(data => data.json())
     .toPromise()
   }
 
-  login(loginTest){ 
-    console.log("<>API Service / Login", loginTest)    
+  login(loginTest){
     return this._http.post('/api/user/login', loginTest)
     .map(data => data.json())
     .toPromise()

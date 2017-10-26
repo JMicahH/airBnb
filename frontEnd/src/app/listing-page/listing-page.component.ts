@@ -30,7 +30,6 @@ export class ListingPageComponent implements OnInit {
     this.getListing();
   }
 
-  // Get listing id from url
   getListing() {
     this._apiService.getListing(this.listingId)
     .then(data => {
