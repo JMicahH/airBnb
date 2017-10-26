@@ -6,6 +6,18 @@ var Review = mongoose.model('Review');
 
 module.exports = {
 
+   search: function(req,res){
+       var city = req.body.city.toLowerCase();
+        Listing.find({'city': city, 'state': req.body.state}, function(err,listings){
+            if (err){
+                console.log(err)
+                res.json({'error':'Error getting listings'});
+            } else {
+                res.json({'listings':listings});
+            }
+        });
+    },
+
    getYourListings: function(req,res){
         Listing.find({_host: req.session.currentUser}, function(err,listings){
             if (err){
@@ -17,9 +29,9 @@ module.exports = {
         });
     },
 
-    // Requires listingId
+    // Requires id
     deleteListing: function(req,res){
-        Listing.remove({_id: req.body.listingId}, function(err){
+        Listing.remove({_id: req.body.id}, function(err){
             if (err){
                 res.json({'error':'Error deleting listing'});
             } else {
@@ -49,7 +61,8 @@ module.exports = {
         if(req.body.apartmentNumber){
             newListing.address = req.body.address;
         }
-        newListing.city = req.body.city;
+        var city = req.body.city.toLowerCase();
+        newListing.city = city;
         newListing.state = req.body.state;
         newListing.zip = req.body.zip;
         if(req.body.image){

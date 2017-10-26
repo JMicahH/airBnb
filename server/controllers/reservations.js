@@ -10,6 +10,17 @@ module.exports = {
     //  startDate:
     //  endDate:
     // }
+
+    getYourReservations: function(req,res){
+        Reservation.find({_guest: req.session.currentUser}, function(err,reservations){
+            if (err){
+                res.json({'error': 'Error find your reservations'});
+            } else {
+                res.json({'good': 'All good'})
+            }
+        });
+    },
+
     create: function(req,res){
         var newReservation = new Reservation();
         newReservation.startDate = req.body.startDate;

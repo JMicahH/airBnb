@@ -10,7 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  searchString: string;
+  cityString: string;
+  stateString: string;
+
+  results: any;
+
   options: NgDateRangePickerOptions;
 
   
@@ -32,13 +36,13 @@ export class AppComponent {
   }
 
   search(){
-    this._apiService.getListing(this.searchString)
+    this._apiService.search(this.cityString, this.stateString)
     .then(data => {
       if (data.errors){
         console.log(data.errors)
       } else {
         // Route to a search page 
-        this.searchString = data.listing
+        this.results = data.listing
       }
     });
   }
