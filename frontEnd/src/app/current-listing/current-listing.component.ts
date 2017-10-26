@@ -4,44 +4,38 @@ import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
-  selector: 'app-listing-page',
-  templateUrl: './listing-page.component.html',
-  styleUrls: ['./listing-page.component.css']
+  selector: 'app-current-listing',
+  templateUrl: './current-listing.component.html',
+  styleUrls: ['./current-listing.component.css']
 })
-export class ListingPageComponent implements OnInit {
-  listingId: any;
+export class CurrentListingComponent implements OnInit {
   listing: any;
+  listingId: any;
 
   constructor(
     private _apiService: ApiService,
     private _route: Router,
-    private _activeRoute: ActivatedRoute
-  ) { 
-    
-  } 
+    private _activeRoute: ActivatedRoute,
+  ) {
 
+  }
+  
   ngOnInit() {
     this._activeRoute.params.subscribe(params => {
       this.listingId = params['id'];
+      this.getListing();
     })
-    this.getListing();
   }
 
   getListing() {
     this._apiService.getListing(this.listingId)
     .then(data => {
-      if (data.errors){
-        console.log(data.errors)
+      if (data.error){
+        console.log(data.error)
       } else {
         this.listing = data.listing
       }
     });
   }
-
-  // bookListing(){
-  //   this._apiService.bookListing(this.listingId)
-  // }
-
 }

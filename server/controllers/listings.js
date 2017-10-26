@@ -2,8 +2,20 @@ var mongoose = require('mongoose');
 
 var Listing = mongoose.model('Listing');
 var User = mongoose.model('User');
+var Review = mongoose.model('Review');
 
 module.exports = {
+
+   getYourListings: function(req,res){
+        Listing.find({_host: req.session.currentUser}, function(err,listings){
+            if (err){
+                console.log(err)
+                res.json({'error':'Error getting listings'});
+            } else {
+                res.json({'listings':listings});
+            }
+        });
+    },
 
     // Requires listingId
     deleteListing: function(req,res){
@@ -17,8 +29,8 @@ module.exports = {
     },
 
     // Added populating reviews, it is untested so be careful
-    getListing: function(req,res){
-        Listing.findOne({_id: req.params.listingId})
+    getOne: function(req,res){
+        Listing.findOne({_id: req.body.id})
         .populate('reviews')
         .exec(function(err, listing){
             if (err){
