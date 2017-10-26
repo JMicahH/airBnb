@@ -15,13 +15,13 @@
 
 <div class="header">
   <img src="../assets/airbnb-logomark.png" id="headerlogo">
+  <div id="headerSearch">
   <form (submit)='search()' class="headerSearchForm" #userSearch='ngForm'>
-      <span class="glyphicon glyphicon-search"></span>
-      <input id='headerSearchField' type="text" name='search' placeholder="Enter City" [(ngModel)]='cityString'
+      <img src="../assets/magnifyingglass.png" width="18px" height="18px">
+      <input id='headerSearchField' type="text" name='search' placeholder="Enter City" required [(ngModel)]='cityString'
         #city='ngModel'>
-      <div id="headersearchDrop">
-        <select  name="state" required [(ngModel)]='stateString' #state='ngModel'>
-          <option disabled>Select one</option>
+        <select  name="state" required [(ngModel)]='stateString' #state='ngModel' id="headerSearchFormSelect">
+          <option value="" disabled selected>Select State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -74,17 +74,16 @@
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-      </div>
+        <button class="btn btn-default">Search</button>
 </form>
+</div>
 
   <div class="headerLinks">
     <a id="myBtn">Help</a>&nbsp;&nbsp;&nbsp;
     <a [routerLink]="['loginReg']">Sign Up / Log In</a>
   </div>
 </div>
-
-<h1>Air BnB</h1>
-
+<div class="routerOutletStyle">
 <router-outlet></router-outlet>
-
+</div>
 

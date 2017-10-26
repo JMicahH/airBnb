@@ -1,3 +1,8 @@
+.routerOutletStyle{
+    margin-top: 80px !important;
+}
+
+
 .header{
     background: #f4f4f4;
     background: -moz-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
@@ -7,15 +12,26 @@
     height: 80px;
     width: 100%;
     border-bottom: 1px solid rgb(207, 207, 207);
-    z-index: 2;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+
 }
 
 #headerlogo{
-    margin-left: 6%;
-    height: 48%;
-    width: auto;
+    margin-left: 59px;
+    height: auto;
+    width: 36px;
     position: relative;
-    top: 12px;
+    /* top: -45px; */
+    display: inline-block;
+    top: -9px;
+}
+
+#headerSearch{
+    width: 50%;
+    position: relative;
+    display: inline-block;
 }
 
 
@@ -24,27 +40,68 @@
     left: 15px;
     top: 12px;
     display: inline-block;
+    width: 100%;
 }
 
 #headerSearchField[_ngcontent-c0]{
-    width: 200%;
+    width: 50%;
     height: 53px;
-    border-radius: 4px;
-    border: 1px solid #DBDBDB !important;
+    /* border-radius: 4px; */
+    border-top: 1px solid #DBDBDB !important;
+    border-bottom: 1px solid #DBDBDB !important;
+    border-left: 1px solid #DBDBDB !important;
+    border-right: 1px dotted #DBDBDB !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-    float: none;
+    float: left;
     display: inline-block !important;
-    top: -20px !important;
     position: relative;
     z-index: 2;
+    padding-left: 34px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
-option{
-    display: inline-block !important;
+#headerSearch img{
+    position: absolute;
+    z-index: 4;
+    top: 18px;
+    left: 10px;
 }
 
-.input-group-addon{
-    display: inline-block;
+#headerSearchFormSelect {
+    height: 53px !important;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    /* border: 1px solid #DBDBDB !important; */
+    border-radius: 0px !important;
+    border-top: 1px solid #DBDBDB !important;
+    border-bottom: 1px solid #DBDBDB !important;
+    border-left: 1px solid rgb(255, 255, 255) !important;
+    border-right: 1px solid #DBDBDB !important;
+    padding: 0px 15px;
+    float: left;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#757575' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    
+}
+
+#headerSearchForm option{
+    /* display: inline-block !important; */
+}
+
+.btn-default{
+    height: 53px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    float: left;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: 1px solid rgb(255, 255, 255) !important;
+    color: #757575 !important;
 }
 
 #headersearchDrop{
@@ -54,8 +111,9 @@ option{
 .headerLinks{
     float: right;
     vertical-align: middle;
-    padding: 28px 7%;
+    padding: 28px 7% 28px 0px;
     font-size: 17px;
+    display: inline-block;
 }
 
 .headerLinks a{
