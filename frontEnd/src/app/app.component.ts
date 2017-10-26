@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   searchString: string;
   options: NgDateRangePickerOptions;
-
+  userSearch: any;
   
   constructor(
     private _apiService: ApiService,

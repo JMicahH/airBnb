@@ -45,12 +45,19 @@
     color: rgb(255, 196, 0);  
 }
 
-
-.side-container{
-    display: none;
+#formDatePicker{
+    text-align: center;
+    margin-top: 15px;
 }
 
-.calendar.is-opened {
-    width: auto !important;
+.ng-daterangepicker{
+    width: 50% !important;
+}
+.ng-daterangepicker .calendar .side-container{
+    display: none !important;
+}
+
+.ng-daterangepicker[_ngcontent-c4] .calendar[_ngcontent-c4]{
+    width: 100px !important;
 
 }

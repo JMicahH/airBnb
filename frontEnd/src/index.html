@@ -26,10 +26,72 @@
   $(function() {
     $('input[name="daterange"]').daterangepicker();
   });
+  $( document ).ready(function() {
+
+              // Get the modal
+            var modal = document.getElementById('myModal');
+            
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            $("#helpvideo").attr('src', '');
+            
+            // When the user clicks on the button, open the modal 
+            btn.onclick = function() {
+              $("#helpvideo").attr('src', "https://www.youtube.com/embed/CTsB-llTzyc?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0&amp;start=34");
+                modal.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              $("#helpvideo").attr('src', '');
+                modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                  $("#helpvideo").attr('src', '');
+                    modal.style.display = "none";
+                }
+            }
+          });
+
+
   </script>
 
 </head>
 <body>
+    <div id="myModal" class="modal">
+        
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="helpvideo" width="560" height="315" src="https://www.youtube.com/embed/CTsB-llTzyc?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0&amp;start=34" frameborder="0" allowfullscreen></iframe>
+                    </div>
+        
+        </div>
+
+
+        <!-- <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">YouTube Video</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="helpvideo" width="560" height="315" src="https://www.youtube.com/embed/CTsB-llTzyc?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0&amp;start=34" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+  
+
   <app-root></app-root>
+  
 </body>
 </html>
