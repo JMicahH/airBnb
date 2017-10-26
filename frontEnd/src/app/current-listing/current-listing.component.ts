@@ -17,9 +17,7 @@ export class CurrentListingComponent implements OnInit {
     private _apiService: ApiService,
     private _route: Router,
     private _activeRoute: ActivatedRoute,
-  ) {
-
-  }
+  ) { }
   
   ngOnInit() {
     this._activeRoute.params.subscribe(params => {
@@ -35,6 +33,17 @@ export class CurrentListingComponent implements OnInit {
         console.log(data.error)
       } else {
         this.listing = data.listing
+      }
+    });
+  }
+  
+  delete(){
+    this._apiService.deleteListing(this.listingId)
+    .then(data => {
+      if (data.error){
+        console.log(data.error)
+      } else {
+        this._route.navigateByUrl('/dashboard')
       }
     });
   }

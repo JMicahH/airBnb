@@ -21,6 +21,8 @@ import { AddListingComponent } from './add-listing/add-listing.component';
 import { YourTripsComponent } from './your-trips/your-trips.component';
 import { YourListingsComponent } from './your-listings/your-listings.component';
 import { CurrentListingComponent } from './current-listing/current-listing.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SearchedListingComponent } from './searched-listing/searched-listing.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { CurrentListingComponent } from './current-listing/current-listing.compo
     YourTripsComponent,
     YourListingsComponent,
     CurrentListingComponent,
+    LandingPageComponent,
+    SearchedListingComponent,
   ],
   imports: [
     BrowserModule,

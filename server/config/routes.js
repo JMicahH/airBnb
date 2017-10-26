@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 // Change examples to your controllers
 var users = require('../controllers/users.js')
 var listings = require('../controllers/listings.js')
+var reservations = require('../controllers/reservations.js')
 
 module.exports = function(app){
 
@@ -9,8 +10,20 @@ module.exports = function(app){
     //     users.index(req,res);
     // });
 
+    app.get('/api/reservations/getYourReservations', function(req,res){
+        reservations.getYourReservations(req,res);
+    });
+
     app.get('/api/listing/getYourListings', function(req,res){
         listings.getYourListings(req,res);
+    });
+
+    app.post('/api/listing/deleteListing', function(req,res){
+        listings.deleteListing(req,res);
+    });
+
+    app.post('/api/listing/search', function(req,res){
+        listings.search(req,res);
     });
 
     app.post('/api/listing/create', function(req,res){

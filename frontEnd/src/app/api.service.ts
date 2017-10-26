@@ -20,6 +20,29 @@ export class ApiService {
     .toPromise();
   }
 
+  search(cityString, stateString){
+    var object = {
+      city: cityString,
+      state: stateString,
+    } 
+    return this._http.post('/api/listing/search', object)
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  deleteListing(listingId){ 
+    var object = {id: listingId};
+    return this._http.post('/api/listing/deleteListing', object)
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getYourReservations(){ 
+    return this._http.get('/api/reservations/getYourReservations')
+    .map(data => data.json())
+    .toPromise()
+  }
+
   getYourListings(){ 
     return this._http.get('/api/listing/getYourListings')
     .map(data => data.json())

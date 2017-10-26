@@ -9,9 +9,13 @@ import { ListingPageComponent } from './listing-page/listing-page.component';
 import { AddListingComponent } from './add-listing/add-listing.component';
 import { YourTripsComponent } from './your-trips/your-trips.component';
 import { YourListingsComponent } from './your-listings/your-listings.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SearchedListingComponent } from './searched-listing/searched-listing.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', component: LoginAndRegComponent },
+  {path: '', pathMatch: 'full', component: LandingPageComponent },
+  {path: 'search/:city/:state', pathMatch: 'full', component: LandingPageComponent },
+  {path: 'loginReg', component: LoginAndRegComponent },
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'inbox', component: AddListingComponent },
     {path: 'trips', component: YourTripsComponent },
