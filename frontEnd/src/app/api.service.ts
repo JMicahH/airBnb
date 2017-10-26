@@ -30,6 +30,19 @@ export class ApiService {
     .toPromise()
   }
 
+  logout(){ 
+    return this._http.get('/api/logout')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  deleteReservation(reservationId){ 
+    var object = {id: reservationId};
+    return this._http.post('/api/reservation/deleteReservation', object)
+    .map(data => data.json())
+    .toPromise()
+  }
+
   deleteListing(listingId){ 
     var object = {id: listingId};
     return this._http.post('/api/listing/deleteListing', object)
@@ -45,6 +58,17 @@ export class ApiService {
 
   getYourListings(){ 
     return this._http.get('/api/listing/getYourListings')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  makeReservation(listingId, startDate, endDate){
+    var object = {
+      'listingId':listingId,
+      'startDate':startDate,
+      'endDate':endDate,
+  }
+    return this._http.post('/api/reservation/create', object)
     .map(data => data.json())
     .toPromise()
   }

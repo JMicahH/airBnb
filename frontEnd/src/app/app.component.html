@@ -18,9 +18,9 @@
   <div id="headerSearch">
   <form (submit)='search()' class="headerSearchForm" #userSearch='ngForm'>
       <img src="../assets/magnifyingglass.png" width="18px" height="18px">
-      <input id='headerSearchField' type="text" name='search' placeholder="Enter City" required [(ngModel)]='userSearch.city'
+      <input id='headerSearchField' type="text" name='search' placeholder="Enter City" required [(ngModel)]='cityString'
         #city='ngModel'>
-        <select  name="state" required [(ngModel)]='userSearch.state' #state='ngModel' id="headerSearchFormSelect">
+        <select  name="state" required [(ngModel)]='stateString' #state='ngModel' id="headerSearchFormSelect">
           <option value="" disabled selected>Select State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>

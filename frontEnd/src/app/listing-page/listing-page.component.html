@@ -22,11 +22,11 @@
       </div>
       <hr>
 
-<h1>Listing Title</h1>
+<h1>{{listing.title}}</h1>
 
 <div class="row">
-<div class="col-10"><p>Listing Type <span class="smallBullet">•</span> City &nbsp;&nbsp; Stars/# of Reviews<br>
-Hosted by Host First Name • <a href="#contacthost">Contact Host</a>
+<div class="col-10"><p>{{listing.type}}<span class="smallBullet">•</span> {{listing.city}} &nbsp;&nbsp; Stars/# of Reviews<br>
+Hosted by {{listing._host.firstName}} {{listing._host.lastName}} • <a href="#contacthost">Contact Host</a>
 </p>
 </div>
 

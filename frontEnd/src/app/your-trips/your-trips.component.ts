@@ -17,13 +17,27 @@ export class YourTripsComponent implements OnInit {
   ) { } 
 
   ngOnInit() {
+    this.getYourReservation();
   }
 
   getYourReservation(){
     this._apiService.getYourReservations()
     .then(data => {
-      if (data.listings){
+      if (data.reservations){
         this.reservations = data.reservations;
+        console.log(this.reservations)
+      }
+      else{
+        console.log("Error in getting reservations");
+      }
+    })
+  }
+
+  delete(reservationId){
+    this._apiService.deleteReservation(reservationId)
+    .then(data => {
+      if (data.good){
+        this._route.navigateByUrl('/dashboard')
       }
       else{
         console.log("Error in getting reservations");

@@ -43,7 +43,7 @@ module.exports = {
     // Added populating reviews, it is untested so be careful
     getOne: function(req,res){
         Listing.findOne({_id: req.body.id})
-        .populate('reviews')
+        .populate('_host')
         .exec(function(err, listing){
             if (err){
                 res.json({'error': err});

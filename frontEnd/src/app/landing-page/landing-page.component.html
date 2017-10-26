@@ -4,7 +4,10 @@
 
 
   <!-- This is how the searchs will appear -->
-  <div class="row">
-    
-  </div>
+    <div class="d-inline-block p-3 ml-3" *ngFor='let listing of results'>
+      <img class="image" *ngIf='listing.image' src="{{listing.image}}">
+      <img class="image" *ngIf='!listing.image' src="https://i5.walmartimages.com/asr/f752abb3-1b49-4f99-b68a-7c4d77b45b40_1.39d6c524f6033c7c58bd073db1b99786.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF">
+      <p>• ${{listing.price}} per night •</p><a [routerLink]="['../../../listing', listing._id]"><h3>{{listing.title}}</h3></a>
+      <p>{{listing.type}} in {{listing.city}}, {{listing.state}}</p>
+    </div>
 </div>

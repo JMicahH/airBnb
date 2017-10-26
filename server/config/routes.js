@@ -14,8 +14,17 @@ module.exports = function(app){
         reservations.getYourReservations(req,res);
     });
 
+    app.get('/api/logout', function(req,res){
+        req.session.currentUser = null;
+        res.json({'good':'All good'})
+    });
+
     app.get('/api/listing/getYourListings', function(req,res){
         listings.getYourListings(req,res);
+    });
+
+    app.post('/api/reservation/deleteReservation', function(req,res){
+        reservations.declineReservation(req,res);
     });
 
     app.post('/api/listing/deleteListing', function(req,res){
@@ -24,6 +33,10 @@ module.exports = function(app){
 
     app.post('/api/listing/search', function(req,res){
         listings.search(req,res);
+    });
+
+    app.post('/api/reservation/create', function(req,res){
+        reservations.create(req,res);
     });
 
     app.post('/api/listing/create', function(req,res){

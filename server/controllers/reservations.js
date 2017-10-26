@@ -12,11 +12,15 @@ module.exports = {
     // }
 
     getYourReservations: function(req,res){
-        Reservation.find({_guest: req.session.currentUser}, function(err,reservations){
+        console.log(req.session.currentUser)
+        Reservation.find({_guest: req.session.currentUser})
+        .populate('_listing')
+        .exec(function(err,reservations){
+            console.log(reservations)
             if (err){
                 res.json({'error': 'Error find your reservations'});
             } else {
-                res.json({'good': 'All good'})
+                res.json({'reservations':reservations})
             }
         });
     },
@@ -27,6 +31,7 @@ module.exports = {
         newReservation.endDate = req.body.endDate;
         newReservation._guest = req.session.currentUser;
         newReservation._listing = req.body.listingId;
+        console.log(newReservation);
         newReservation.save(function(err){
             if (err){
                 res.json({'error': 'Error adding reservation'})
@@ -78,7 +83,7 @@ module.exports = {
 
     // Require the req.body.reservationId
     declineReservation: function(req,res){
-        Reservation.remove({_id: req.body.reservationId}, function(err){
+        Reservation.remove({_id: req.body.id}, function(err){
             if (err){
                 res.json({'error':'Error removing reservation'});
             } else {
