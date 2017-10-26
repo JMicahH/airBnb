@@ -60,7 +60,7 @@ Listing Description
     
 
 
-    <form (submit)="reservationSubmit()" #reservationForm="ngForm">
+    <form id="formDatePicker" (submit)="reservationSubmit()" #reservationForm="ngForm">
         <ng-daterangepicker required [(ngModel)]="dateString" name="dates" [options]="options"></ng-daterangepicker>
         
 

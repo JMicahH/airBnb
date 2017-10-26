@@ -1,0 +1,68 @@
+.header{
+    background: #f4f4f4;
+    background: -moz-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
+    background: -webkit-linear-gradient(top, #f4f4f4 0%,#ffffff 100%);
+    background: linear-gradient(to bottom, #f4f4f4 0%,#ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=0 );
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid rgb(207, 207, 207);
+    z-index: 2;
+}
+
+#headerlogo{
+    margin-left: 6%;
+    height: 48%;
+    width: auto;
+    position: relative;
+    top: 12px;
+}
+
+
+.headerSearchForm{
+    position: relative;
+    left: 15px;
+    top: 12px;
+    display: inline-block;
+}
+
+#headerSearchField[_ngcontent-c0]{
+    width: 200%;
+    height: 53px;
+    border-radius: 4px;
+    border: 1px solid #DBDBDB !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    float: none;
+    display: inline-block !important;
+    top: -20px !important;
+    position: relative;
+    z-index: 2;
+}
+
+option{
+    display: inline-block !important;
+}
+
+.input-group-addon{
+    display: inline-block;
+}
+
+#headersearchDrop{
+
+}
+
+.headerLinks{
+    float: right;
+    vertical-align: middle;
+    padding: 28px 7%;
+    font-size: 17px;
+}
+
+.headerLinks a{
+    color: #999;
+    z-index: 2;
+}
+
+
+
+

@@ -16,7 +16,7 @@ export class AppComponent {
   results: any;
 
   options: NgDateRangePickerOptions;
-
+  userSearch: any;
   
   constructor(
     private _apiService: ApiService,
