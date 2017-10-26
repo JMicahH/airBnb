@@ -1,12 +1,8 @@
 <div class="container p-3">
-    <div class="row">
-      <div class="col-4">
-        <div *ngFor='let listing of listings' class="row">
-          <a [routerLink]="[reservation._id]">{{listing.title}}</a>
-        </div>
-      </div>
-      <div class="col-7">
-        <router-outlet></router-outlet>
-      </div>
+    <div *ngFor='let trip of reservations'>
+      <h2>{{trip._listing.title}}</h2><br>
+      <p>{{trip._listing.address}}, {{trip._listing.city}}</p><br>
+      <p>{{trip.startDate}} - {{trip.endDate}}</p>
+      <button (click)='delete(trip._id)'>Delete</button>
     </div>
   </div>

@@ -51,13 +51,20 @@ reservationSubmit(){
   function makeDate(date){
     let arr = date.split('/')
     let day = parseInt(arr[0]) + 1
-    console.log("DAY", day)
     let month = arr[1]
     let year = arr[2]
     let datestring = year + "-" + month + "-" + day
     return new Date(datestring)
   }
-  console.log(startDate, endDate)
+  
+  this._apiService.makeReservation(this.listingId, startDate, endDate)
+  .then(data => {
+    if (data.errors){
+      console.log(data.errors)
+    } else {
+      this._route.navigateByUrl('/')
+    }
+  });
 }
 
 

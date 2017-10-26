@@ -13,7 +13,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SearchedListingComponent } from './searched-listing/searched-listing.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', component: LandingPageComponent },
+  // {path: '', pathMatch: 'full', component: LandingPageComponent },
   {path: 'search/:city/:state', pathMatch: 'full', component: LandingPageComponent },
   {path: 'loginReg', component: LoginAndRegComponent },
   {path: 'dashboard', component: DashboardComponent, children: [
@@ -24,7 +24,7 @@ const routes: Routes = [
     ]},
   ]},
   {path: 'addListing', component: AddListingComponent },
-  {path: 'listingPage', component: ListingPageComponent },
+  {path: 'listing/:id', component: ListingPageComponent },
   {path: 'logout', component: LoginAndRegComponent },
 ];
 

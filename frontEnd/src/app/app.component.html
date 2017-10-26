@@ -17,10 +17,10 @@
   <img src="../assets/airbnb-logomark.png" id="headerlogo">
   <form (submit)='search()' class="headerSearchForm" #userSearch='ngForm'>
       <span class="glyphicon glyphicon-search"></span>
-      <input id='headerSearchField' type="text" name='search' placeholder="Enter City" [(ngModel)]='userSearch.city'
+      <input id='headerSearchField' type="text" name='search' placeholder="Enter City" [(ngModel)]='cityString'
         #city='ngModel'>
       <div id="headersearchDrop">
-        <select  name="state" required [(ngModel)]='userSearch.state' #state='ngModel'>
+        <select  name="state" required [(ngModel)]='stateString' #state='ngModel'>
           <option disabled>Select one</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -79,7 +79,7 @@
 
   <div class="headerLinks">
     <a id="myBtn">Help</a>&nbsp;&nbsp;&nbsp;
-    <a href="/loginReg">Sign Up / Log In</a>
+    <a [routerLink]="['loginReg']">Sign Up / Log In</a>
   </div>
 </div>
 

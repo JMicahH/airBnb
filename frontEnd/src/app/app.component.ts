@@ -35,15 +35,19 @@ export class AppComponent {
     };
   }
 
-  search(){
-    this._apiService.search(this.cityString, this.stateString)
+  logout(){
+    this._apiService.logout()
     .then(data => {
-      if (data.errors){
-        console.log(data.errors)
-      } else {
-        // Route to a search page 
-        this.results = data.listing
+      if (data.error){
+        console.log('Logout error')
       }
-    });
+      else{
+        this._route.navigateByUrl('/');
+      }
+    })
+  }
+
+  search(){
+    this._route.navigateByUrl('search/' + this.cityString + '/' + this.stateString)
   }
 }
