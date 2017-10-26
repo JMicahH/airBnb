@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgDateRangePickerModule } from 'ng-daterangepicker';
 
 // Important Modules
 import { FormsModule } from '@angular/forms';
@@ -37,6 +38,7 @@ import { CurrentListingComponent } from './current-listing/current-listing.compo
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    NgDateRangePickerModule
   ],
   providers: [
     ApiService,

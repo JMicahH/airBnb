@@ -1,29 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>AirBnB</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- <link rel="stylesheet" type="text/css" href="listing-page.component.css">
-  <link rel="stylesheet" -->
-  <href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
-  <!-- Include Required Prerequisites -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
- 
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-
-
-
-</head>
-<body>
 
 
 <a [routerLink]="['listingPage']">Listing Page</a> | <a [routerLink]="['addListing']">Add Listing</a> | <a [routerLink]="['logout']">Logout</a>
@@ -82,26 +57,21 @@ Listing Description
       Book this listing!
     </div>
     
-    <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
     
-    <script type="text/javascript">
-      $(function() {
-          $('input[name="daterange"]').daterangepicker();
-      });
-      </script>
 
-    <form #bookListingForm="ngForm">
+
+    <form (submit)="reservationSubmit()" #reservationForm="ngForm">
+        <ng-daterangepicker required [(ngModel)]="dateString" name="dates" [options]="options"></ng-daterangepicker>
         
 
       <!-- <input type="date" name="startDate" required  [(ngModel)]='reservationReq.startDate' #bookingStartDate='ngModel'>
         <input type="date" name="endDate" required  [(ngModel)]='reservationReq.endDate' #bookingEndDate='ngModel'> -->
-        <button [disabled]='!bookListingForm.valid'>Submit</button>
+        <button [disabled]='!reservationForm.valid'>Submit</button>
         
   </form>
+  {{ dateString | json }}
   </div>
 
 </div>
 
 </div></div>
-</body>
-</html>
