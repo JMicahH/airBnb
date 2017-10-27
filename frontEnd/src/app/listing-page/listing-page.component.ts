@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TitleCasePipe } from '@angular/common';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -16,6 +17,7 @@ export class ListingPageComponent implements OnInit {
   dateString: any;
 
   constructor(
+    private _titlecasePipe:TitleCasePipe,
     private _apiService: ApiService,
     private _route: Router,
     private _activeRoute: ActivatedRoute
@@ -37,6 +39,7 @@ export class ListingPageComponent implements OnInit {
         console.log(data.errors)
       } else {
         this.listing = data.listing
+        this.listing.city = this._titlecasePipe.transform(this.listing.city);
       }
     });
   }
@@ -57,7 +60,14 @@ reservationSubmit(){
     let datestring = year + "-" + month + "-" + day
     return new Date(datestring)
   }
-  console.log(startDate, endDate)
+  this._apiService.makeReservation(this.listingId,startDate,endDate)
+  .then(data => {
+    if (data.errors){
+      console.log(data.errors)
+    } else {
+      this._route.navigateByUrl('/dashboard/trips');
+    }
+  });
 }
 
 

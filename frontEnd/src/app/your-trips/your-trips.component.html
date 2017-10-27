@@ -1,8 +1,17 @@
 <div class="container p-3">
-    <div *ngFor='let trip of reservations'>
-      <h2>{{trip._listing.title}}</h2><br>
-      <p>{{trip._listing.address}}, {{trip._listing.city}}</p><br>
-      <p>{{trip.startDate}} - {{trip.endDate}}</p>
-      <button (click)='delete(trip._id)'>Delete</button>
+    <div id="tripRow" class="row p-3 justify-content-between" *ngFor='let trip of reservations'>
+      <div class="col-3">
+        <img *ngIf='trip._listing.image' src="{{trip._listing.image}}">
+        <img *ngIf='!trip._listing.image' src="https://i5.walmartimages.com/asr/f752abb3-1b49-4f99-b68a-7c4d77b45b40_1.39d6c524f6033c7c58bd073db1b99786.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF">
+      </div>
+      <div class="col-4">
+        <a [routerLink]="['../../listing',trip._listing._id]"><h2 id="titleMargin">{{trip._listing.title}}</h2></a>
+        <p>{{trip._listing.address}}, {{trip._listing.city}}, {{trip._listing.state}}</p><br>
+      </div>
+      <div class="col-4">
+        <p id="datesMargin">Arrival: {{trip.startDate}}</p>
+        <p>Departure: {{trip.endDate}}</p>
+        <button class="btn btn-danger text-white" (click)='delete(trip._id)'>Cancel</button>
+      </div>
     </div>
   </div>
