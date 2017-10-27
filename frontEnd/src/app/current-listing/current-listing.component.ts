@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class CurrentListingComponent implements OnInit {
     private _apiService: ApiService,
     private _route: Router,
     private _activeRoute: ActivatedRoute,
+    private _titlecasePipe:TitleCasePipe,
   ) { }
   
   ngOnInit() {
@@ -33,6 +35,7 @@ export class CurrentListingComponent implements OnInit {
         console.log(data.error)
       } else {
         this.listing = data.listing
+        this.listing.city = this._titlecasePipe.transform(this.listing.city);
       }
     });
   }

@@ -5,6 +5,7 @@ import { NgDateRangePickerModule } from 'ng-daterangepicker';
 // Important Modules
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { TitleCasePipe } from '@angular/common';
 
 // Import Service
 import { ApiService } from './api.service';
@@ -45,6 +46,7 @@ import { SearchedListingComponent } from './searched-listing/searched-listing.co
     NgDateRangePickerModule
   ],
   providers: [
+    TitleCasePipe,
     ApiService,
   ],
   bootstrap: [AppComponent]
