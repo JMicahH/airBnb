@@ -1,5 +1,6 @@
 
-<div id="landingBackground" [ngStyle]="{'background-image': landingBackground}">
+<div [ngClass]="{'landingBackground': currentUrl.url == '/' || currentUrl.url == '/loginReg'}"
+[ngStyle]="{'background-image': currentUrl.url =='/' || currentUrl.url == '/loginReg' ? landingBackground : ''}">
 <div class="header">
   <img src="../assets/airbnb-logomark.png" id="headerlogo">
   <div id="headerSearch">
@@ -74,8 +75,8 @@
 <router-outlet></router-outlet>
 </div>
 
-<div *ngIf="currentUrl.url == '/'" id="landingSplashLogo">HELLO WORLD
-    {{ currentUrl.url | json }}
+<div *ngIf="currentUrl.url == '/'" id="splashDiv"><span id="landingSplashText">HELLO WORLD</span><br>
+    <img src="../assets/airbnb-logofull-white.png" id="landingSplashLogo">
 </div>
 
 
