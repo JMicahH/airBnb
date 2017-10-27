@@ -1,0 +1,19 @@
+#dropDown {
+    height: 34px !important;
+}
+
+#submitButton {
+    background-color: #008489 !important;    
+}
+
+#titleOfForm {
+    margin-left: 85px;
+}
+
+#allOfIt {
+    margin-top: 130px;
+}
+
+label {
+    color: #484848;
+}
