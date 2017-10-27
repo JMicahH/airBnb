@@ -15,6 +15,7 @@ export class ListingPageComponent implements OnInit {
   listingId: any;
   listing: any;
   dateString: any;
+  listingImageUrl: string;
 
   constructor(
     private _titlecasePipe:TitleCasePipe,
@@ -40,6 +41,7 @@ export class ListingPageComponent implements OnInit {
       } else {
         this.listing = data.listing
         this.listing.city = this._titlecasePipe.transform(this.listing.city);
+        this.listingImageUrl = "url('" + data.listing.image + "')"
       }
     });
   }

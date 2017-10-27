@@ -1,11 +1,6 @@
 
-
-
-<a [routerLink]="['listingPage']">Listing Page</a> | <a [routerLink]="['addListing']">Add Listing</a> | <a [routerLink]="['logout']">Logout</a>
-
 <!-- Hero Image -->
-  <div id="heroImage">
-    &nbsp;
+<div id="heroImage" [ngStyle]="{'background-image': listingImageUrl }">    &nbsp;
   </div>
 
 
@@ -35,11 +30,11 @@ Hosted by {{listing._host.firstName}} {{listing._host.lastName}} • <a href="#c
 </div>
 
 <div id="features" class="col-10">
-#Guests #Bedrooms #Baths
+    <span class="glyphicon glyphicon-user"></span>&nbsp;{{listing.maxGuests}} Guests&nbsp;&nbsp; <span class="glyphicon glyphicon-bed"></span>&nbsp;{{listing.beds}} Beds&nbsp;&nbsp; <span class="glyphicon glyphicon-user"></span>&nbsp;{{listing.baths}} Baths&nbsp;&nbsp;
 </div>
 
 <div id="description" class="col-10">
-Listing Description
+    {{listing.desc}}
 </div>
 
 
