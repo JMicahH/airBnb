@@ -97,4 +97,11 @@ export class ApiService {
     .map(data => data.json())
     .toPromise()
   }
+
+  getUser(){
+    return this._http.get('/api/getUser')
+    .map(data => data.json())
+    .toPromise()
+  }
+
 }

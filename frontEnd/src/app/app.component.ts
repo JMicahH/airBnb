@@ -33,6 +33,7 @@ export class AppComponent {
   landingBackground: string;
   landingPage = true;
   currentUrl: any;
+  loggedInUser = false;
 
   constructor(
     private _apiService: ApiService,
@@ -54,11 +55,23 @@ export class AppComponent {
 
     this._route.events.subscribe((event) => {
       this.currentUrl = event;
+      this._apiService.getUser().then(data => {
+        if (data.loggedInUser){
+          this.loggedInUser = true;        
+          console.log('Get Session User', data)
+        }
+        else{
+          console.log('No Logged In Session User')
+          this.loggedInUser = false;
+        }
+      })
+  
     })
 
 
     this.landingBackground = this.landingImages[Math.floor(Math.random()*9)]
     console.log(this.landingBackground)
+
   }
 
   logout(){
@@ -68,6 +81,7 @@ export class AppComponent {
         console.log('Logout error')
       }
       else{
+        this.loggedInUser = false;
         this._route.navigateByUrl('/');
       }
     })

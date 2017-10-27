@@ -19,6 +19,11 @@ module.exports = function(app){
         res.json({'good':'All good'})
     });
 
+    app.get('/api/getUser', function(req,res){
+        res.json({'loggedInUser': req.session.currentUser })
+    });
+
+
     app.get('/api/listing/getYourListings', function(req,res){
         listings.getYourListings(req,res);
     });
