@@ -1,5 +1,17 @@
-<h2>Dashboard</h2>
-
-<a [routerLink]="['inbox']">Inbox</a>&nbsp;|&nbsp;<a [routerLink]="['trips']">Your Trips</a>&nbsp;|&nbsp;<a [routerLink]="['listings']">Your Listings</a>
-
-<router-outlet></router-outlet>
+<div class="container p-3">
+    <h2>Your Dashboard</h2>
+    
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="">Inbox</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['trips']">Your Trips</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['listings']">Your Listings</a>
+        </li>
+    </ul>
+    
+    <router-outlet></router-outlet>
+</div>

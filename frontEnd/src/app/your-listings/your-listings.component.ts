@@ -19,6 +19,7 @@ export class YourListingsComponent implements OnInit {
 
   ngOnInit() {
     this.getYourListings();
+    console.log(this.currentId)
   }
 
   getYourListings(){

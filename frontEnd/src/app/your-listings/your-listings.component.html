@@ -1,9 +1,13 @@
-<div class="container p-3">
+<div class="container p-3 mt-3">
   <div class="row">
     <div class="col-4">
-      <div *ngFor='let listing of listings' class="row">
-        <a [routerLink]="[listing._id]">{{listing.title}}</a>
+
+
+      <!-- This doesn't work yet -->
+      <div *ngFor='let listing of listings' class="row list-group">
+        <a [routerLink]="[listing._id]"><button type="button" class="list-group-item list-group-item-action" [ngClass]="{'active' : listing._id === currentId}">{{listing.title}}</button></a>
       </div>
+
     </div>
     <div class="col-7">
       <router-outlet></router-outlet>
