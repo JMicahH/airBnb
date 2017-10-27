@@ -57,7 +57,7 @@ export class AppComponent {
     })
 
 
-    this.landingBackground = this.landingImages[Math.floor(Math.random()*8) + 1]
+    this.landingBackground = this.landingImages[Math.floor(Math.random()*9)]
     console.log(this.landingBackground)
   }
 
