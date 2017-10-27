@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
@@ -19,6 +20,7 @@ export class LandingPageComponent implements OnInit {
     private _apiService: ApiService,
     private _route: Router,
     private _activeRoute: ActivatedRoute,
+    private _titlecasePipe:TitleCasePipe,
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,9 @@ export class LandingPageComponent implements OnInit {
       } else {
         // Route to a search page 
         this.results = data.listings
+        for(var i=0; i<this.results.length; i++){
+          this.results[i].city = this._titlecasePipe.transform(this.results[i].city)
+        }
       }
     });
   }

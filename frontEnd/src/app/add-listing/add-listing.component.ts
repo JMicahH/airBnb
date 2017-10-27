@@ -27,7 +27,7 @@ export class AddListingComponent implements OnInit {
         // 
         // Change route when we know where to go
         // 
-        this._route.navigateByUrl('');
+        this._route.navigateByUrl('/dashboard/listings');
       }
       else{
         console.log('Error adding listing')

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
@@ -14,6 +15,7 @@ export class YourTripsComponent implements OnInit {
   constructor(
     private _apiService: ApiService,
     private _route: Router,
+    private _titlecasePipe:TitleCasePipe,
   ) { } 
 
   ngOnInit() {
@@ -25,7 +27,9 @@ export class YourTripsComponent implements OnInit {
     .then(data => {
       if (data.reservations){
         this.reservations = data.reservations;
-        console.log(this.reservations)
+        for (var i=0; i<this.reservations.length; i++){
+          this.reservations[i]._listing.city = this._titlecasePipe.transform(this.reservations[i]._listing.city);
+        }
       }
       else{
         console.log("Error in getting reservations");

@@ -39,8 +39,7 @@ export class AppComponent {
     private _route: Router,
     private _activeRoute: ActivatedRoute
     
-  ) {     console.log(this._route.url)
-  } 
+  ) { } 
 
   ngOnInit() {
     this.options = {
@@ -54,8 +53,6 @@ export class AppComponent {
     };
 
     this._route.events.subscribe((event) => {
-      console.log(
-      "ROUTER EVENT", event);
       this.currentUrl = event;
     })
 
