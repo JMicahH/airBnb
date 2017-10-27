@@ -3,6 +3,8 @@ import { NgDateRangePickerOptions } from 'ng-daterangepicker';
 
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -17,11 +19,28 @@ export class AppComponent {
 
   options: NgDateRangePickerOptions;
   userSearch: any;
-  
+  landingImages = [
+    "url('../assets/landingBackground1.jpg')",
+    "url('../assets/landingBackground2.jpg')",
+    "url('../assets/landingBackground3.jpg')",
+    "url('../assets/landingBackground4.jpg')",
+    "url('../assets/landingBackground5.jpg')",
+    "url('../assets/landingBackground6.jpg')",
+    "url('../assets/landingBackground7.jpg')",
+    "url('../assets/landingBackground8.jpg')",    
+  ]
+
+  landingBackground: string;
+  landingPage = true;
+  currentUrl: any;
+
   constructor(
     private _apiService: ApiService,
     private _route: Router,
-  ) { } 
+    private _activeRoute: ActivatedRoute
+    
+  ) {     console.log(this._route.url)
+  } 
 
   ngOnInit() {
     this.options = {
@@ -33,6 +52,16 @@ export class AppComponent {
       outputFormat: 'MM/DD/YYYY',
       startOfWeek: 1
     };
+
+    this._route.events.subscribe((event) => {
+      console.log(
+      "ROUTER EVENT", event);
+      this.currentUrl = event;
+    })
+
+
+    this.landingBackground = this.landingImages[Math.floor(Math.random()*8) + 1]
+    console.log(this.landingBackground)
   }
 
   logout(){
