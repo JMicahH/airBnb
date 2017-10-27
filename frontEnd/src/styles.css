@@ -3,6 +3,10 @@ body{
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
 }
 
+a{
+    color: #008489;
+}
+
 
 .ng-daterangepicker[_ngcontent-c4] .calendar[_ngcontent-c4] .side-container[_ngcontent-c4] {
     display: none !important;
