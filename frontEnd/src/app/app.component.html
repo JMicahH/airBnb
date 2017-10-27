@@ -1,18 +1,5 @@
-<!-- <head>
-    <script type="text/javascript">
-    function initialize() {
-        var input = document.getElementById('searchTextField');
-        var options = {
-          types: ['(cities)'],
-          componentRestrictions: {country: 'us'}
-        };
-        
-        autocomplete = new google.maps.places.Autocomplete(input, options);
-        }
-    google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-</head> -->
 
+<div id="landingBackground" [ngStyle]="{'background-image': landingBackground}">
 <div class="header">
   <img src="../assets/airbnb-logomark.png" id="headerlogo">
   <div id="headerSearch">
@@ -21,7 +8,7 @@
       <input id='headerSearchField' type="text" name='search' placeholder="Enter City" required [(ngModel)]='cityString'
         #city='ngModel'>
         <select  name="state" required [(ngModel)]='stateString' #state='ngModel' id="headerSearchFormSelect">
-          <option value="" disabled selected>Select State</option>
+          <option value="" disabled selected default>Select State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -87,3 +74,9 @@
 <router-outlet></router-outlet>
 </div>
 
+<div *ngIf="currentUrl.url == '/'" id="landingSplashLogo">HELLO WORLD
+    {{ currentUrl.url | json }}
+</div>
+
+
+</div>

@@ -92,6 +92,14 @@
     /* display: inline-block !important; */
 }
 
+#landingBackground{
+    background-image: url('../assets/landingBackground1.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 1000px;
+}
+
 .btn-default{
     height: 53px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
@@ -119,6 +127,15 @@
 .headerLinks a{
     color: #999;
     z-index: 2;
+}
+
+#landingSplashLogo{
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
 }
 
 
