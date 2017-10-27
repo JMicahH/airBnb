@@ -1,3 +1,8 @@
 a button {
     color: #008489;
 }
+
+#addListingButton {
+    color: white !important;
+    background-color: #008489 !important;
+}
