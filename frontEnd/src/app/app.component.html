@@ -2,7 +2,7 @@
 <div [ngClass]="{'landingBackground': currentUrl.url == '/' || currentUrl.url == '/loginReg'}"
 [ngStyle]="{'background-image': currentUrl.url =='/' || currentUrl.url == '/loginReg' ? landingBackground : ''}">
 <div class="header">
-  <img src="../assets/airbnb-logomark.png" id="headerlogo">
+  <img src="../assets/airbnb-logomark.png" id="headerlogo" [routerLink]="['']">
   <div id="headerSearch">
   <form (submit)='search()' class="headerSearchForm" #userSearch='ngForm'>
       <img src="../assets/magnifyingglass.png" width="18px" height="18px">
@@ -68,8 +68,10 @@
 
   <div class="headerLinks">
     <a id="myBtn">Help</a>&nbsp;&nbsp;&nbsp;
-    <a [routerLink]="['loginReg']">Sign Up / Log In</a>
-  </div>
+    <a *ngIf="!loggedInUser" [routerLink]="['loginReg']">Sign Up / Log In</a>
+    <a *ngIf="loggedInUser" [routerLink]="['dashboard']">Dashboard</a>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-link headerLinks" *ngIf="loggedInUser" (click)="logout()">Logout</button>
+</div>
 </div>
 <div class="routerOutletStyle">
 <router-outlet></router-outlet>

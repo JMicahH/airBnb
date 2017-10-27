@@ -25,7 +25,6 @@ const routes: Routes = [
   ]},
   {path: 'addListing', component: AddListingComponent },
   {path: 'listing/:id', component: ListingPageComponent },
-  {path: 'logout', component: LoginAndRegComponent },
 ];
 
 

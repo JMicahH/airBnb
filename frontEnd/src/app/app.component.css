@@ -88,6 +88,7 @@
     
 }
 
+
 #headerSearchForm option{
     /* display: inline-block !important; */
 }
@@ -122,12 +123,22 @@
     padding: 28px 7% 28px 0px;
     font-size: 17px;
     display: inline-block;
+    color: #757575;
+    z-index: 2;
+
 }
 
 .headerLinks a{
-    color: #999;
-    z-index: 2;
+    color: #757575;
+    
 }
+
+.headerLinks button{
+    padding: 0px;
+    top: -1px;
+    position: relative;
+}
+
 #splashDiv{
     width: 100%;
     text-align: center;
